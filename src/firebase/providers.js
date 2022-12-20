@@ -22,6 +22,8 @@ export const signInWidthGoogle = async () => {
 
     return {
       ok: false,
+      errorCode,
+      errorMessage,
     }
   }
 }
