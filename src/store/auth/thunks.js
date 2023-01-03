@@ -2,13 +2,13 @@ import { registerUserWithEmailPassword, signInWidthGoogle } from '../../firebase
 import { checkingCredentials, login, logout } from './'
 
 export const checkingAuthentication = (email, password) => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(checkingCredentials())
   }
 }
 
 export const startGoogleSignIn = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(checkingCredentials())
 
     const result = await signInWidthGoogle()
@@ -19,7 +19,7 @@ export const startGoogleSignIn = () => {
 }
 
 export const startCreatingUserWithEmailPassword = ({ email, password, displayName }) => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(checkingCredentials())
     const { ok, uid, photoURL, errorMessage } = await registerUserWithEmailPassword({
       email,
