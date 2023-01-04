@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { TurnedInNot } from '@mui/icons-material'
 import {
   Drawer,
@@ -14,6 +15,8 @@ import {
 } from '@mui/material'
 
 export const SideBar = ({ drawerWidth = 240 }) => {
+  const { displayName } = useSelector(state => state.auth)
+
   return (
     <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
       <Drawer
@@ -26,12 +29,12 @@ export const SideBar = ({ drawerWidth = 240 }) => {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Ariel
+            {displayName}
           </Typography>
         </Toolbar>
         <Divider />
         <List>
-          {['Enero', 'Feb', 'Mar', 'abr'].map((text) => (
+          {['Enero', 'Feb', 'Mar', 'abr'].map(text => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
